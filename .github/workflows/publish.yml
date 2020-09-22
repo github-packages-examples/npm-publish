@@ -29,9 +29,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
 
-      - run: |
-          curl --location --request POST 'https://api.github.com/repos/${{ github.repository_owner }}/npm-install/dispatches' \
-          --header 'Accept: application/vnd.github.v3+json' \
-          --header 'Content-Type: application/json' \
-          --header 'Authorization: Bearer ${{ secrets.REPO_TOKEN }}' \
-          --data-raw '{ "event_type": "build" }'
+      - run: gh api repos/${{ github.repository_owner }}/npm-install/dispatches <<< '{"event_type": "build"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
