@@ -1,0 +1,16 @@
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create a package called @${{ github.repository }}
+        run: npm init --scope ${{ github.repository_owner }}
+
+      - name: Build the package
+        run: npm pack
+
