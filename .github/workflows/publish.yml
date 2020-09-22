@@ -8,9 +8,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: actions/setup-node@v1
+        with:
+          scope: ${{ github.repository_owner }}
+          registry-url: https://npm.pkg.github.com
+
       - name: Create a package called @${{ github.repository }}
         run: npm init --scope ${{ github.repository_owner }} -y
 
       - name: Build the package
         run: npm pack
 
+      - name: Publish the package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.github }}
