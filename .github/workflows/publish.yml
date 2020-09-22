@@ -29,6 +29,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
 
-      - run: gh api repos/${{ github.repository_owner }}/npm-install/dispatches <<< '{"event_type":"build"}'
+      - run: gh api repos/${{ github.repository_owner }}/npm-install/dispatches <<< '{"event_type":"build"}' --input -
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
