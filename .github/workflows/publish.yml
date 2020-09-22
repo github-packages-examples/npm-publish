@@ -22,4 +22,4 @@ jobs:
       - name: Publish the package
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.github }}
+          NODE_AUTH_TOKEN: ${{ github.token }}
