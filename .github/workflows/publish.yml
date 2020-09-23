@@ -18,6 +18,9 @@ jobs:
       - name: Create a package called @${{ github.repository }}
         run: npm init --scope ${{ github.repository_owner }} -y
 
+      - name: Add index.js to package
+        run: echo 'exports.sayHello = () => { console.log("Hello, World!") }' > index.js
+
       - name: Set package version to ${{ env.VERSION }}
         run: npm version ${{ env.VERSION }} --no-git-tag-version
 
