@@ -24,14 +24,14 @@ jobs:
       - name: Build the package
         run: npm pack
 
-      - name: Create .npmrc-publish file
+      - name: Create .npmrc file
         run: |
           echo '//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
-          @${{ github.repository_owner }}:registry=https://npm.pkg.github.com' > .npmrc-publish
-          cat .npmrc-publish
+          @${{ github.repository_owner }}:registry=https://npm.pkg.github.com' > .npmrc
+          cat .npmrc
 
       - name: Publish the package
-        run: npm publish --npmrc=.npmrc-publish
+        run: npm publish
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
