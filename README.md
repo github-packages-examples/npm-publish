@@ -1,2 +1,2 @@
 # npm-publish
-Example publishing an npm package
+Example publishing an npm package.
