@@ -45,7 +45,7 @@ jobs:
     needs: [publish]
 
     steps:
-      - name: Only retain the last 5 pre-release versions
+      - name: Retain 10 most recent versions
         uses: actions/delete-package-versions@b5e80e74e42758aea4bedf30695a05360cb97ba0
         with:
           package-name: ${{ env.PACKAGE_NAME }}
