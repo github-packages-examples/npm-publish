@@ -50,4 +50,3 @@ jobs:
         with:
           package-name: ${{ env.PACKAGE_NAME }}
           delete-only-pre-release-versions: true
-          min-versions-to-keep: 5
