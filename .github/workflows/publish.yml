@@ -49,4 +49,4 @@ jobs:
         uses: actions/delete-package-versions@b5e80e74e42758aea4bedf30695a05360cb97ba0
         with:
           package-name: ${{ env.PACKAGE_NAME }}
-          delete-only-pre-release-versions: true
+          min-versions-to-keep: 10
