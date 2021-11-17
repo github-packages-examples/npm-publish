@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: Only retain the last 5 pre-release versions
-        uses: actions/delete-package-versions@8d3af2ed699c124b090fa381ab55ec7325883bf7
+        uses: actions/delete-package-versions@b5e80e74e42758aea4bedf30695a05360cb97ba0
         with:
           package-name: ${{ env.PACKAGE_NAME }}
           delete-only-pre-release-versions: true
