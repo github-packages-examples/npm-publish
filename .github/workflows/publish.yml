@@ -2,6 +2,7 @@ on: [push]
 
 env:
   VERSION: "1.0.${{ github.run_number }}"
+  PACKAGE_NAME: npm-publish
 
 jobs:
   publish:
@@ -47,6 +48,6 @@ jobs:
       - name: Only retain the last 5 pre-release versions
         uses: actions/delete-package-versions@8d3af2ed699c124b090fa381ab55ec7325883bf7
         with:
-          package-name: ${{ env.NAME }}
+          package-name: ${{ env.PACKAGE_NAME }}
           delete-only-pre-release-versions: true
           min-versions-to-keep: 5
