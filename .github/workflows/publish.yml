@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: Retain 10 most recent versions
-        uses: actions/delete-package-versions@b5e80e74e42758aea4bedf30695a05360cb97ba0
+        uses: actions/delete-package-versions@32b30cfe627e87fa3a77027be5c3663bc3abbb77
         with:
           package-name: ${{ env.PACKAGE_NAME }}
           min-versions-to-keep: 10
