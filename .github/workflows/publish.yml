@@ -37,3 +37,16 @@ jobs:
         run: gh api repos/${{ github.repository_owner }}/npm-install/dispatches <<< '{"event_type":"build"}' --input -
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+          
+  retention-policy:
+    runs-on: ubuntu-latest
+
+    needs: [publish]
+
+    steps:
+      - name: Only retain the last 5 pre-release versions
+        uses: actions/delete-package-versions@8d3af2ed699c124b090fa381ab55ec7325883bf7
+        with:
+          package-name: ${{ env.NAME }}
+          delete-only-pre-release-versions: true
+          min-versions-to-keep: 5
