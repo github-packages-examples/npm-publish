@@ -34,7 +34,7 @@ jobs:
       - name: Publish the package
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Trigger npm-install workflow
         if: ${{ env.GITHUB_TOKEN != null }}
